@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Note Taking App</title>
+  <link rel="stylesheet" href="styles/main.css">
+</head>
+
+<body>
+  <div class="app-container">
+    <!-- Sidebar with note list -->
+    <div class="sidebar">
+      <div class="sidebar-header">
+        <h2>My Notes</h2>
+        <button id="new-note-btn" class="btn">New Note</button>
+      </div>
+      <div class="note-list" id="note-list">
+        <!-- Notes will be listed here -->
+      </div>
+      <div class="sidebar-footer">
+        <button id="view-graph-btn" class="btn">Graph View</button>
+        <button id="toggle-theme-btn" class="btn">Toggle Theme</button>
+      </div>
+    </div>
+
+    <!-- Main content area -->
+    <div class="main-content">
+      <div class="editor-container">
+        <div class="editor-header">
+          <input type="text" id="note-title" placeholder="Untitled Note" disabled>
+          <div class="editor-actions">
+            <button id="save-note-btn" class="btn">Save</button>
+            <button id="delete-note-btn" class="btn btn-danger">Delete</button>
+          </div>
+        </div>
+        <div class="editor-wrapper">
+          <textarea id="note-editor" placeholder="Start writing your note here..."></textarea>
+          <div id="preview-pane" class="preview-pane markdown-body">
+            <!-- Markdown preview will be shown here -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Graph view container (initially hidden) -->
+      <div id="graph-container" class="graph-container hidden">
+        <div id="graph-view"></div>
+        <button id="close-graph-btn" class="btn">Close Graph</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Quiz modal (initially hidden) -->
+  <!-- <div id="quiz-modal" class="modal hidden">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Quiz Mode</h2>
+        <span class="close-modal">&times;</span>
+      </div>
+      <div id="quiz-container"> -->
+
+  <!-- Quiz content will be generated here -->
+  <!-- </div>
+    </div>
+   </div>  -->
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vis-network@9.1.2/dist/vis-network.min.js"></script>
+  <script src="renderer.js"></script>
+
+  <script src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
+  <script src="scripts/graph-view.js"></script>
+
+</body>
+
+</html>

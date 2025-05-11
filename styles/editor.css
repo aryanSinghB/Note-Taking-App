@@ -1,0 +1,230 @@
+/* editor.css - Styles for the markdown editor and preview */
+
+/* Editor Container */
+#editor-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    flex: 1;
+    overflow: hidden;
+    background-color: var(--bg-secondary);
+    transition: all 0.3s ease;
+}
+
+#editor-container.hidden {
+    display: none;
+}
+
+/* Title bar */
+.editor-title-bar {
+    display: flex;
+    align-items: center;
+    padding: 8px 16px;
+    background-color: var(--bg-accent);
+    border-bottom: 1px solid var(--border-color);
+}
+
+#note-title {
+    flex: 1;
+    padding: 8px 12px;
+    font-size: 16px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+}
+
+/* Editor toolbar */
+.editor-toolbar {
+    display: flex;
+    padding: 8px 16px;
+    background-color: var(--bg-primary);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.editor-toolbar button {
+    padding: 6px 12px;
+    margin-right: 8px;
+    background-color: var(--button-bg);
+    color: var(--button-text);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.2s;
+}
+
+.editor-toolbar button:hover {
+    background-color: var(--button-hover-bg);
+}
+
+/* Content area with editor and preview */
+.editor-content {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+}
+
+/* Markdown editor */
+#markdown-editor {
+    flex: 1;
+    padding: 16px;
+    font-family: 'Fira Code', monospace;
+    font-size: 15px;
+    line-height: 1.6;
+    border: none;
+    resize: none;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    outline: none;
+    tab-size: 4;
+}
+
+/* Preview pane */
+#preview-pane {
+    flex: 1;
+    padding: 16px 24px;
+    overflow-y: auto;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    border-left: 1px solid var(--border-color);
+}
+
+/* Toggle preview mode */
+#editor-container.preview-hidden #preview-pane {
+    display: none;
+}
+
+#editor-container.preview-hidden #markdown-editor {
+    width: 100%;
+}
+
+/* Empty preview state */
+.empty-preview {
+    color: var(--text-muted);
+    font-style: italic;
+    text-align: center;
+    padding-top: 40px;
+}
+
+/* Markdown styling in preview */
+#preview-pane h1 {
+    font-size: 24px;
+    margin-top: 0;
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+#preview-pane h2 {
+    font-size: 20px;
+    margin-top: 24px;
+    margin-bottom: 12px;
+    padding-bottom: 4px;
+    border-bottom: 1px solid var(--border-light);
+}
+
+#preview-pane h3 {
+    font-size: 18px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+#preview-pane p {
+    margin-bottom: 16px;
+    line-height: 1.6;
+}
+
+#preview-pane a {
+    color: var(--link-color);
+    text-decoration: none;
+}
+
+#preview-pane a:hover {
+    text-decoration: underline;
+}
+
+#preview-pane code {
+    font-family: 'Fira Code', monospace;
+    background-color: var(--code-bg);
+    padding: 2px 4px;
+    border-radius: 3px;
+    font-size: 0.9em;
+}
+
+#preview-pane pre {
+    background-color: var(--code-bg);
+    padding: 12px;
+    border-radius: 4px;
+    overflow-x: auto;
+    margin-bottom: 16px;
+}
+
+#preview-pane pre code {
+    background-color: transparent;
+    padding: 0;
+}
+
+#preview-pane blockquote {
+    border-left: 4px solid var(--accent-color);
+    margin-left: 0;
+    padding-left: 16px;
+    color: var(--text-muted);
+}
+
+#preview-pane ul, #preview-pane ol {
+    padding-left: 24px;
+    margin-bottom: 16px;
+}
+
+#preview-pane li {
+    margin-bottom: 4px;
+}
+
+#preview-pane img {
+    max-width: 100%;
+    height: auto;
+}
+
+#preview-pane table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 16px;
+}
+
+#preview-pane th, #preview-pane td {
+    border: 1px solid var(--border-color);
+    padding: 8px 12px;
+    text-align: left;
+}
+
+#preview-pane th {
+    background-color: var(--bg-light);
+}
+
+/* Special styling for note links */
+.note-link {
+    color: var(--accent-color);
+    background-color: var(--link-bg);
+    padding: 1px 4px;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.note-link:hover {
+    background-color: var(--link-hover-bg);
+    text-decoration: none !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .editor-content {
+        flex-direction: column;
+    }
+    
+    #preview-pane {
+        border-left: none;
+        border-top: 1px solid var(--border-color);
+    }
+}
